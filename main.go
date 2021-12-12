@@ -57,8 +57,8 @@ func loadLanguage(l string) Language {
 		"csharp": {
 			Directory:          "csharp",
 			FileExtension:      "cs",
-			FileNameInflection: inflect.CamelizeDownFirst,
-			OjectInflection:    inflect.CamelizeDownFirst,
+			FileNameInflection: inflect.Camelize,
+			OjectInflection:    inflect.Camelize,
 		},
 	}
 	lang, ok := languages[l]

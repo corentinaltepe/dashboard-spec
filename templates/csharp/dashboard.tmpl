@@ -1,11 +1,19 @@
 {{template "comment" .}}
 
+namespace Grafana.Grafonnet;
+
+public class Dashboard 
 {
+  {{- template "topLevelSimpleProperties2" .}}
+}
+
+
+  /*
   {{- template "topLevelSimpleProperties" .}}
 
     {{- template "readOnlyWithDefaultProperties" .}}
 
-    {{- template "topLevelObjectProperties" .}}
+    X{{- template "topLevelObjectProperties" .}}X
 
     {{- template "nestedComplexArrayProperties" .}}
 
@@ -21,4 +29,5 @@
     },
     addPanels(panels):: std.foldl(function(d, p) d.addPanel(p), panels, self),
   },
+  */
 }
