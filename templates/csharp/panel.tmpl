@@ -1,0 +1,12 @@
+{{template "comment" .}}
+
+{
+  {{- template "topLevelSimpleProperties" .}}
+
+    {{- template "readOnlyWithDefaultProperties" .}}
+
+    {{- template "topLevelObjectProperties" .}}
+
+    {{- template "nestedComplexArrayProperties" .}}
+  },
+}

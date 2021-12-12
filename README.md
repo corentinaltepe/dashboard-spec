@@ -18,7 +18,7 @@ npm install -g @apidevtools/swagger-cli
 swagger-cli bundle --dereference --outfile _gen/7.0/spec.json specs/7.0/spec.yml
 
 :: Generate code from templates and spec.json
-go run . 7.0 charp
+go run . 7.0 csharp
 ```
 
 ## Repo Layout

@@ -1,0 +1,24 @@
+{{template "comment" .}}
+
+{
+  {{- template "topLevelSimpleProperties" .}}
+
+    {{- template "readOnlyWithDefaultProperties" .}}
+
+    {{- template "topLevelObjectProperties" .}}
+
+    {{- template "nestedComplexArrayProperties" .}}
+
+    panels: [],
+    _nextPanelID:: 2,
+    addPanel(panel):: self {
+      local nextPanelID = super._nextPanelID,
+      panels+: [
+        panel { id: nextPanelID } +
+        if 'panels' in panel then { panels: std.mapWithIndex(function(i, p) p { id: nextPanelID + i + 1 }, panel.panels) } else {},
+      ],
+      _nextPanelID:: nextPanelID + 1 + (if 'panels' in panel then std.length(panel.panels) else 0),
+    },
+    addPanels(panels):: std.foldl(function(d, p) d.addPanel(p), panels, self),
+  },
+}
