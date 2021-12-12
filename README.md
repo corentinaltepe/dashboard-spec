@@ -8,6 +8,19 @@ Specification](https://github.com/OAI/OpenAPI-Specification).
 Also in this repository is a code generator that uses the schema documents to
 generate libraries for writing Grafana dashboards as code.
 
+## How To
+
+```sh
+:: Install swagger-cli
+npm install -g @apidevtools/swagger-cli
+
+:: Generate global spec.json from the specs/ directory
+swagger-cli bundle --dereference --outfile _gen/7.0/spec.json specs/7.0/spec.yml
+
+:: Generate code from templates and spec.json
+go run . 7.0 charp
+```
+
 ## Repo Layout
 
 ### [specs/](./specs)
@@ -82,7 +95,7 @@ value on the object.
 The code generator is a Go program in this repository. Currently only supported
 is Jsonnet for spec 7.0. Use it locally with:
 
-```
+```sh
 go run . 7.0 jsonnet
 ```
 
